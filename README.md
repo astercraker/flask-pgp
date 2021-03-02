@@ -16,3 +16,8 @@ De igual manera debe crearse el archivo si instala un paquete, debe usar el coma
 
     pip freeze > requirements.txt
 
+# Lanzar Servidor para desarrollo
+Para el desarrollo se tienen que declarar FLASK_APP y FLASK_ENV, pero nos evitamos la molestia instalando python-dotenv, asi que para nuestro desarrollo solo debemos ejecutar 
+
+    flask run --host=0.0.0.0
+En el cual especificamos que el host sea 0.0.0.0 para que podamos acceder el sitio desde nuestro celular.
