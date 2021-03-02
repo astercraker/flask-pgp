@@ -12,7 +12,7 @@ Siempre que trabaje con el proyecto debe activar el entorno virtual, asi como la
 La instalacion de paquetes necesarios se pueden hacer mediante el archivo requirements.txt que se encuentra dentro del proyecto de la siguiente manera.
 
     pip install -r requirements.txt
-De igual manera debe crearse el archivo si instala un paquete con el comando
+De igual manera debe crearse el archivo si instala un paquete, debe usar el comando
 
     pip freeze > requirements.txt
 
