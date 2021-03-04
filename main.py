@@ -6,7 +6,7 @@ import os
 #from model import db
 
 app = Flask(__name__)
-settings_module = os.getenv('APP_SETTINGS_MODULE')
+settings_module = os.getenv('APP_SETTINGS_MODULE') if os.getenv('APP_SETTINGS_MODULE') else 'config.DevelopmentConfig'
 
 app.config.from_object(settings_module)
 db = SQLAlchemy(app)
