@@ -1,12 +1,16 @@
 from flask import Flask, render_template, abort
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import os
 
-from model import db
+#from model import db
 
 app = Flask(__name__)
-app.config.from_pyfile('config.py')
+settings_module = os.getenv('APP_SETTINGS_MODULE')
+
+app.config.from_object(settings_module)
 db = SQLAlchemy(app)
+
 class Post(db.Model):
     __tablename__ = 'posts'
     id = db.Column(db.Integer, primary_key=True)
