@@ -1,9 +1,12 @@
-import json
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime, date
 
+db = SQLAlchemy()
 
-def load_db():
-    with open("cards_db.json") as f:
-        return json.load(f)
-
-
-db = load_db()
+class Post(db.Model):
+    __tablename__ = 'posts'
+    id = db.Column(db.Integer, primary_key=True)
+    titulo = db.Column(db.String, nullable=False)
+    fecha = db.Column(db.DateTime, default=datetime.now)
+    texto = db.Column(db.String, nullable=False)
+    pass
