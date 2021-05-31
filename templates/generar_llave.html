@@ -1,0 +1,101 @@
+{% extends "index.html" %}
+{% block title %}Bienvenido{% endblock %}
+{% block content %}
+
+<section class="section">
+    <div class="container container-rounded">
+      <h1 class="title">Generar llave</h1>
+      <div class="button-container">
+        <a class="button" href="{{ url_for('admin_llaves') }}"><i class="fas fa-long-arrow-alt-left"></i> Regresar</a>
+      </div>
+        <div class="columns is-5-tablet is-4-desktop is-3-widescreen">
+          <div class="column">
+              <form class="box" method = "post">
+                  <div class="field">
+                      <label class="label">Nombre</label>
+                      <div class="control">
+                          <input type="nombre" class="input" name="nombre" placeholder="Nombre">
+                      </div>
+                  </div>
+                  <div class="field">
+                      <label class="label">Correo</label>
+                      <div class="control has-icons-right">
+                          <input type="text" class="input" name="correo" placeholder="Correo" required>
+                          <span class="icon is-small is-right">
+                            <i class="fa fa-envelope"></i>
+                        </span>
+                      </div>
+                  </div>
+                  <div class="field">
+                    <label class="label">Contraseña</label>
+                      <div class="control has-icons-right">
+                          <input type="password" class="input" name="password" placeholder="*********" required >
+                          <span class="icon is-small is-right">
+                              <i class="fa fa-lock"></i>
+                          </span>
+                      </div>
+                  </div>
+                  <div class="field">
+                    <input type = "submit" class="button is-success" value = "Generar" />
+                    <!--
+                        <button class="button is-success">
+                          Generar
+                      </button>
+                    -->
+                  </div>
+              </form>
+          </div>
+      </div>
+    </div>
+</section>
+<div class="modal" id="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class="box">
+      <article class="media">
+        
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>Mensaje</strong> 
+              <br><br>
+              Se va a borrar su clave secreta, ¿Esta seguro de borrarla?
+            </p>
+            <button class="button is-info is-small event-close" id="next">Aceptar</button>
+          </div>
+          <nav class="level is-mobile">
+            <div class="level-left">
+              <a class="level-item" aria-label="retweet">
+                <span class="icon is-small">
+                  &nbsp;
+                </span>
+              </a>
+            </div>
+          </nav>
+        </div>
+        
+        <div class="media-right">
+          <i class="icon-modal error fas fa-check-circle"></i>
+        </div>
+      </article>
+    </div>
+  </div>
+  <button class="event-close modal-close is-large" aria-label="close"></button>
+</div>
+<script>
+var modal = document.getElementById("modal");
+var clickMe = document.querySelector('.event-close');
+
+var modalClose = document.querySelector('.modal-close');
+var modalBackground = document.querySelector('.modal-background');
+clickMe.addEventListener('click', function (event) {
+	modal.classList.remove("is-active");
+});
+modalBackground.addEventListener('click', function (event) {
+	modal.classList.remove("is-active");
+});
+modalClose.addEventListener('click', function (event) {
+	modal.classList.remove("is-active");
+});
+</script>
+{% endblock %}

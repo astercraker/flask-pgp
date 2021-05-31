@@ -1,0 +1,49 @@
+html{
+    overflow-y: auto;
+    background: white;
+}
+body{
+    background-color: rgba(105,148,150,0.1);
+    background-color: #e0e0e0;
+    min-height: 100vh;
+}
+.navbar-link.is-active, .navbar-link:focus, .navbar-link:focus-within, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover {
+    background-color: #fafafa;
+    color: #e30048 !important;
+}
+.navbar-link.is-active, .navbar-link:focus, .navbar-link:focus-within, .navbar-link:hover, a.navbar-item.is-active, a.navbar-item:focus, a.navbar-item:focus-within, a.navbar-item:hover {
+    background-color: #fafafa;
+    color: #e30048 !important;
+}
+.table.is-bordered th {
+    border-width: 1px;
+    background-color: #f7f7f7;
+    color: #757575;
+}
+.container-rounded {
+    padding: 2.5rem 20px 20px 20px;
+    background: white;
+    border-radius: 20px;
+    margin-top: 2.5rem;
+}
+.button-container{
+    padding: 20px 0px;
+}
+.button-container .button i{
+    margin-right: 10px;
+}
+.media{
+    position: relative;
+}
+.icon-modal::before{
+    font-size: 64px;
+    position: absolute;
+    right: 0;
+    top: calc(50% - 32px);
+}
+.icon-modal.sucess::before{
+    color: green;
+}
+.icon-modal.error{
+    color: tomato;
+}

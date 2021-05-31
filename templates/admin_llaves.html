@@ -1,0 +1,81 @@
+{% extends "index.html" %}
+{% block title %}Bienvenido{% endblock %}
+{% block content %}
+
+<section class="section">
+    <div class="container container-rounded">
+      <h1 class="title">Administración de llaves</h1>
+      <div class="button-container">
+        <a class="button" href="{{ url_for('generar_llave') }}"><i class="fas fa-plus"></i> Generar</a>
+        <a class="button" href="{{ url_for('importar_llave') }}"><i class="fas fa-long-arrow-alt-down"></i> Importar</a>
+        <button class="button"> <i class="fas fa-long-arrow-alt-up"></i> Exportar </button>
+        <a class="button" href="{{ url_for('admin_llaves') }}" id="reload"><i class="fas fa-sync-alt"></i> Actualizar</a>
+        <div class="select is-pulled-right">
+          <select id="type-key">
+            <option value="0">Tipo Llave</option>
+            <option value="privada">Privada</option>
+            <option value="publica">Publica</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table__wrapper">
+        <table class="table is-bordered pricing__table is-fullwidth">
+          <tbody>
+            <tr>
+              <th>Nombre</th>
+              <th>Correo</th>
+              <th>ID Llave</th>
+              <th>Creada</th>
+              <th>Caduca</th>
+            </tr>
+            {% for key in keys %}
+            <tr>
+              <td>
+                {{ key.name }}
+              </td>
+              <td>{{ key.correo }}</td>
+              <td>{{ key.keyID }}</td>
+              <td>
+                {% if key.date is not none %} 
+                  {{ key.date.strftime('%m/%d/%Y %I:%M %p') }}
+                {% endif %}
+              </td>
+              <td>
+                {% if key.expires is not none %} 
+                  {{ key.expires.strftime('%m/%d/%Y %I:%M %p') }}
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+  
+    </div>
+</section>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('input', function (event) {
+
+    // Only run on our select menu
+    if (event.target.id !== 'type-key') return;
+
+    // The selected value
+    console.log(event.target.value);
+
+    // The selected option element
+    console.log(event.target.options[event.target.selectedIndex]);
+    if(event.target.value == "publica"){
+      window.location.href = "/";
+    }else if(event.target.value == "privada"){
+      window.location.href = "/admin_llaves";
+    }
+
+    }, false);
+    document.querySelector("#reload").addEventListener('click', function() {
+        window.location.reload();
+    });
+  });
+</script>
+{% endblock %}

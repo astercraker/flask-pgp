@@ -1,0 +1,79 @@
+{% extends "index.html" %}
+{% block title %}Bienvenido{% endblock %}
+{% block content %}
+
+<section class="section">
+    <div class="container container-rounded">
+      <h1 class="title">Importar llave</h1>
+      <div class="button-container">
+        <a class="button" href="{{ url_for('admin_llaves') }}"><i class="fas fa-long-arrow-alt-left"></i> Regresar</a>
+      </div>
+        <div class="columns is-5-tablet is-4-desktop is-3-widescreen">
+          <div class="column">
+            
+            <form class="box" method = "post">
+                <div class="field">
+                    <label class="label">Llave en texto</label>
+                    <div class="control">
+                        <textarea class="textarea" placeholder="e.g. importar llaves" name="text-key" ></textarea>
+                    </div>
+                </div>
+                <div class="field">
+                  <input type = "submit" class="button is-success" value = "Importar" />
+                </div>
+            </form>
+          </div>
+      </div>
+    </div>
+</section>
+<div class="modal" id="modal">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class="box">
+      <article class="media">
+        
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>Mensaje</strong> 
+              <br><br>
+              Se va a borrar su clave secreta, ¿Esta seguro de borrarla?
+            </p>
+            <button class="button is-info is-small event-close" id="next">Aceptar</button>
+          </div>
+          <nav class="level is-mobile">
+            <div class="level-left">
+              <a class="level-item" aria-label="retweet">
+                <span class="icon is-small">
+                  &nbsp;
+                </span>
+              </a>
+            </div>
+          </nav>
+        </div>
+        
+        <div class="media-right">
+          <i class="icon-modal error fas fa-check-circle"></i>
+        </div>
+      </article>
+    </div>
+  </div>
+  <button class="event-close modal-close is-large" aria-label="close"></button>
+</div>
+<script>
+var modal = document.getElementById("modal");
+var clickMe = document.querySelector('.event-close');
+
+var modalClose = document.querySelector('.modal-close');
+var modalBackground = document.querySelector('.modal-background');
+clickMe.addEventListener('click', function (event) {
+	modal.classList.remove("is-active");
+});
+modalBackground.addEventListener('click', function (event) {
+	modal.classList.remove("is-active");
+});
+modalClose.addEventListener('click', function (event) {
+	modal.classList.remove("is-active");
+});
+</script>
+{% endblock %}
