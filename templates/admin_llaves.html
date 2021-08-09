@@ -28,6 +28,7 @@
               <th>ID Llave</th>
               <th>Creada</th>
               <th>Caduca</th>
+              <th>Seleccionado</th>
             </tr>
             {% for key in keys %}
             <tr>
@@ -45,6 +46,14 @@
                 {% if key.expires is not none %} 
                   {{ key.expires.strftime('%m/%d/%Y %I:%M %p') }}
                 {% endif %}
+              </td>
+              <td>
+                <div class="control">
+                  
+                  <label class="checkbox">
+                    <input type="radio" name="selected">
+                  </label>
+                </div>
               </td>
             </tr>
             {% endfor %}

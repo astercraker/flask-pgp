@@ -47,3 +47,11 @@ body{
 .icon-modal.error{
     color: tomato;
 }
+.square-radio {
+    border: 1px solid black;
+    margin: 2px;
+    width: 40px;
+    height: 40px;
+    position: relative;
+
+}

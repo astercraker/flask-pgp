@@ -29,6 +29,7 @@ class Key(db.Model):
         ts = int(my_dict["date"])
         self.date = datetime.utcfromtimestamp(ts)
         print("---------------",type(my_dict["expires"]))
-        if my_dict["expires"] == None:
+        print(type(my_dict["expires"]))
+        if my_dict["expires"]:
             ts = int(my_dict["expires"])
             self.expires = datetime.utcfromtimestamp(ts)
