@@ -1,6 +1,6 @@
 from flask import Flask, render_template, abort
 import os
-from model import db, Post
+from . import model
 
 app = Flask(__name__)
 settings_module = os.getenv('APP_SETTINGS_MODULE') if os.getenv('APP_SETTINGS_MODULE') else 'config.DevelopmentConfig'
